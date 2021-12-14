@@ -1,8 +1,25 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '../styles/globals.css';
+import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
+import type { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+/* APP generic Error handling */
+function ErrorFallback({ error }:FallbackProps) {
+    return (
+        <div role="alert">
+            <p>Something went wrong:</p>
+            <pre>{error.message}</pre>
+        </div>
+    )
 }
 
-export default MyApp
+
+/* APP component */
+function App({ Component, pageProps }: AppProps) {
+    return (
+        <ErrorBoundary FallbackComponent={ ErrorFallback }>
+            <Component {...pageProps} />
+        </ErrorBoundary>
+    );
+}
+
+export default App;
