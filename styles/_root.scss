@@ -1,0 +1,24 @@
+/* defaults colors */
+:root {
+    @each $name, $color in $palette-a-colors {
+        --#{ $name }: #{ $color };
+    }
+}
+
+body.theme-a {
+    @each $name, $color in $palette-a-colors {
+        --#{ $name }: #{ $color };
+    }
+}
+
+body.theme-b {
+    @each $name, $color in $palette-b-colors {
+        --#{ $name }: #{ $color };
+    }
+}
+
+body.theme-c {
+    @each $name, $color in $palette-c-colors {
+        --#{ $name }: #{ $color };
+    }
+}

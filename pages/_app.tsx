@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 import type { AppProps } from 'next/app';
 
