@@ -21,6 +21,11 @@ const Home: NextPage = () => {
             </Head>
             <GenericPageLayout>
                 <section>
+                    <h1 style={ { fontFamily: 'cheddar gothic', fontSize: '3rem', fontWeight: 400 } }>L'iridescence industrielle de la méchanceté</h1>
+                    <h1 style={ { fontFamily: 'metropolis', fontSize: '3rem', fontWeight: 400 } }>L'opalescente foisonnance de l'art nouveau Nancéen</h1>
+                    <h1 style={ { fontFamily: 'ever looser', fontSize: '3rem', fontWeight: 400 } }>L'irruption du grondement sourd de la cité</h1>
+                </section>
+                <section>
                     <h2>Thématiques</h2>
                     <ol>
                         <li>
