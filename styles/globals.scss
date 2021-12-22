@@ -1,6 +1,7 @@
 @import "variables";
 @import "fonts";
 @import "breakpoints-mixin";
+@import "util-functions";
 
 @import "root";
 
@@ -12,8 +13,8 @@ body {
     // font-family: 'Quicksand', sans-serif;
     // SC fonts
     font-family: 'Great Vibes', cursive;
-
-    font-size: 1.2rem;
+    font-size: fluid-clamp(16px, 24px, 500px, 1000px);
+    line-height: 1.5;
 }
 
 footer {

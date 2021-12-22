@@ -1,0 +1,26 @@
+@use "sass:math";
+
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+      @return math.div($number, ($number * 0 + 1));
+    }
+  
+    @return $number;
+}
+
+@function fluid-px-range($start, $end, $min-width, $max-width) {
+    @if $start < 0 or $end < 0 or $min-width < 0 or $max-width < 0 {
+        @error '🔴 fluid-clamp() parameters should be positive values';
+    }
+    @if unit($start) != 'px' or unit($end) != 'px' or unit($min-width) != 'px' or unit($max-width) != 'px' {
+        @error '🔴 fluid-clamp() parameters should be px values';
+    }
+    $slope: math.div(($end - $start), ($max-width - $min-width));
+    $intercept: $end - ($slope * $max-width);
+
+    @return unquote("#{ $slope * 100vw } + #{ $intercept }");
+}
+
+@function fluid-clamp($start, $end, $min-width, $max-width) {
+    @return unquote("clamp(#{ $start }, #{ fluid-px-range($start, $end, $min-width, $max-width) }, #{ $end })");
+}
