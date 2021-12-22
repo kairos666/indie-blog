@@ -7,8 +7,8 @@ $palette-b-colors: ("darkest": #1a1423, "darker": #372549, "dark": #774c60, "acc
 // PALETTE C - https://coolors.co/1f2041-4b3f72-ffc857-119da4-19647e
 $palette-c-colors: ("darkest": #1f2041, "darker": #19647e, "dark": #119da4, "accent": #4b3f72, "alt-accent": #ffc857);
 
-// BREAKPOINTS
-$breakpoints: (
+// BREAKPOINTS (breakpoints mixin)
+$rwd-breakpoints: (
   'small':  ( min-width:  767px ),
   'medium': ( min-width:  992px ),
   'large':  ( min-width: 1200px )
