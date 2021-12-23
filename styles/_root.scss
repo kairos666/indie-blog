@@ -1,5 +1,13 @@
-/* defaults colors */
 :root {
+    /* font families */
+    --ss-font: 'Quicksand', "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    --sc-font: 'Great Vibes', cursive;
+    --mono-font: SFMono-Regular, Menlo, Monaco,Consolas, "Liberation Mono", "Courier New", monospace;
+    --d-font-indus: 'cheddar gothic', "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    --d-font-retro: 'metropolis', "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    --d-font-street: 'ever looser', "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+    /* defaults colors */
     @each $name, $color in $palette-a-colors {
         --#{ $name }: #{ $color };
     }
@@ -20,5 +28,11 @@ body.theme-b {
 body.theme-c {
     @each $name, $color in $palette-c-colors {
         --#{ $name }: #{ $color };
+    }
+}
+
+@media (prefers-reduced-motion: no-preference){
+    :root {
+        scroll-behavior: smooth;
     }
 }

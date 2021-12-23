@@ -1,0 +1,77 @@
+@use "sass:map";
+@use "sass:math";
+
+@function fluid-px-range($start, $end, $min-width, $max-width) {
+    $startUnitless: strip-unit($start);
+    $endUnitless: strip-unit($end);
+    $minWidthUnitless: strip-unit($min-width);
+    $maxWidthUnitless: strip-unit($max-width);
+
+    @if $min-width < 0 or $max-width < 0 {
+        @error '🔴 fluid-clamp() min-width, max-width parameters should be positive values';
+    }
+    @if unit($min-width) != unit($max-width) {
+        @error '🔴 fluid-clamp() min-width, max-width parameters should be same unit';
+    }
+    @if unit($start) != unit($end) {
+      @error '🔴 fluid-clamp() start, end parameters should be same unit';
+    }
+
+    $slope: math.div(($endUnitless - $startUnitless), ($maxWidthUnitless - $minWidthUnitless));
+    $intercept: $end - ($slope * $maxWidthUnitless);
+
+    @return unquote("#{ $slope * 100vw } + #{ $intercept }");
+}
+
+@function fluid-clamp($start, $end, $min-width, $max-width, $multiplier: 1) {
+    @if $end >= $start {
+      @return unquote("clamp(#{ $start }, #{ fluid-px-range($start, $end, $min-width, $max-width) }, #{ $end })");
+    }
+    @else {
+      @return unquote("clamp(#{ $end }, #{ fluid-px-range($start, $end, $min-width, $max-width) }, #{ $start })");
+    }
+}
+
+/* size proprotional to line height */
+@function vertical-rythm($type, $multiplier: 1) {
+    $type-fluid-font-size: map.get($fluid-font, $type);
+
+    @if not $type-fluid-font-size {
+        @error '🔴 vertical-rythm - type is unknown';
+    }
+
+    $start: map.get($type-fluid-font-size, minSize);
+    $end: map.get($type-fluid-font-size, maxSize);
+    $min-width: map.get($type-fluid-font-size, minWidthFluidRange);
+    $max-width: map.get($type-fluid-font-size, maxWidthFluidRange);
+
+    $font-size-fluid: fluid-px-range($start, $end, $min-width, $max-width);
+    $line-height: map.get($type-fluid-font-size, lineHeight);
+    $final-multiplier: $line-height * $multiplier;
+
+    @if $end >= $start {
+        @return unquote("clamp(#{ $start * $final-multiplier }, #{ $final-multiplier } * (#{ fluid-px-range($start, $end, $min-width, $max-width) }), #{ $end * $final-multiplier })");
+    }
+    @else {
+        @return unquote("clamp(#{ $end * $final-multiplier }, #{ $final-multiplier } * (#{ fluid-px-range($start, $end, $min-width, $max-width) }), #{ $start * $final-multiplier })");
+    }
+}
+
+/**
+ typographic utility mixins 
+**/
+@mixin fluid-typo-size($type) {
+    $type-fluid-font-size: map.get($fluid-font, $type);
+
+    @if not $type-fluid-font-size {
+        @error '🔴 fluid-typo-size - type is unknown';
+    }
+
+    $start: map.get($type-fluid-font-size, minSize);
+    $end: map.get($type-fluid-font-size, maxSize);
+    $min-width: map.get($type-fluid-font-size, minWidthFluidRange);
+    $max-width: map.get($type-fluid-font-size, maxWidthFluidRange);
+
+    font-size: fluid-clamp($start, $end, $min-width, $max-width);
+    line-height: map.get($type-fluid-font-size, lineHeight);
+}

@@ -13,3 +13,11 @@ $rwd-breakpoints: (
   'medium': ( min-width:  992px ),
   'large':  ( min-width: 1200px )
 ) !default;
+
+// TYPOGRAPHY
+$fluid-font: (
+  'small': (minSize: 12px, maxSize: 16px, minWidthFluidRange: 767px, maxWidthFluidRange: 1200px, lineHeight: 1.4),
+  'base': (minSize: 16px, maxSize: 22px, minWidthFluidRange: 767px, maxWidthFluidRange: 1200px, lineHeight: 1.4),
+  'large': (minSize: 24px, maxSize: 32px, minWidthFluidRange: 767px, maxWidthFluidRange: 1200px, lineHeight: 1.4),
+  'xlarge': (minSize: 36px, maxSize: 48px, minWidthFluidRange: 767px, maxWidthFluidRange: 1200px, lineHeight: 1.4)
+) !default;

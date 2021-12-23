@@ -1,20 +1,48 @@
+@use "sass:map";
+@use "sass:math";
+
 @import "variables";
-@import "fonts";
 @import "breakpoints-mixin";
 @import "util-functions";
+@import "typography-utilities";
 
+@import "fonts";
 @import "root";
 
 html,
 body {
+    $base-fluid-font-size: map.get($fluid-font, 'base');
+
+    font-family: var(--ss-font);
+    @include fluid-typo-size('base');
+    color: var(--darkest);
+
     padding: 0;
     margin: 0;
-    // SS fonts
-    // font-family: 'Quicksand', sans-serif;
-    // SC fonts
-    font-family: 'Great Vibes', cursive;
-    font-size: fluid-font-size-clamp(24px, 16px, 500px, 1000px);
-    //line-height: fluid-clamp(120%, 160%, 500px, 1000px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @include fluid-typo-size('base');
+    font-family: var(--ss-font);
+    font-weight: 500;
+    margin-top:0;
+    margin-bottom: vertical-rythm('base', .5);
+    color: var(--darkest);
+}
+h1 {
+
+}
+h2 {
+
+}
+h3 {
+
+}
+h4 {
+
+}
+h5 {
+
 }
 
 footer {

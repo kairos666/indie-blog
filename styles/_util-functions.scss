@@ -7,34 +7,3 @@
   
     @return $number;
 }
-
-@function fluid-px-range($start, $end, $min-width, $max-width) {
-    $startUnitless: strip-unit($start);
-    $endUnitless: strip-unit($end);
-    $minWidthUnitless: strip-unit($min-width);
-    $maxWidthUnitless: strip-unit($max-width);
-
-    @if $min-width < 0 or $max-width < 0 {
-        @error '🔴 fluid-clamp() min-width, max-width parameters should be positive values';
-    }
-    @if unit($min-width) != unit($max-width) {
-        @error '🔴 fluid-clamp() min-width, max-width parameters should be same unit';
-    }
-    @if unit($start) != unit($end) {
-      @error '🔴 fluid-clamp() start, end parameters should be same unit';
-    }
-
-    $slope: math.div(($endUnitless - $startUnitless), ($maxWidthUnitless - $minWidthUnitless));
-    $intercept: $end - ($slope * $maxWidthUnitless);
-
-    @return unquote("#{ $slope * 100vw } + #{ $intercept }");
-}
-
-@function fluid-font-size-clamp($start, $end, $min-width, $max-width) {
-    @if $end >= $start {
-      @return unquote("clamp(#{ $start }, #{ fluid-px-range($start, $end, $min-width, $max-width) }, #{ $end })");
-    }
-    @else {
-      @return unquote("clamp(#{ $end }, #{ fluid-px-range($start, $end, $min-width, $max-width) }, #{ $start })");
-    }
-}

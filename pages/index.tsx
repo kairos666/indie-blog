@@ -24,6 +24,13 @@ const Home: NextPage = () => {
                     <h1 style={ { fontFamily: 'cheddar gothic', fontSize: '3rem', fontWeight: 400 } }>L'iridescence industrielle de la méchanceté</h1>
                     <h1 style={ { fontFamily: 'metropolis', fontSize: '3rem', fontWeight: 400 } }>L'opalescente foisonnance de l'art nouveau Nancéen</h1>
                     <h1 style={ { fontFamily: 'ever looser', fontSize: '3rem', fontWeight: 400 } }>L'irruption du grondement sourd de la cité</h1>
+                    <hr />
+                    <h1>regular h1</h1>
+                    <h2>regular h2</h2>
+                    <h3>regular h3</h3>
+                    <h4>regular h4</h4>
+                    <h5>regular h5</h5>
+                    <h6>regular h6</h6>
                 </section>
                 <section>
                     <h2>Thématiques</h2>
