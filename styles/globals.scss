@@ -65,6 +65,9 @@ mark {
     padding-right: 0.2em;
     background-color: var(--alt-accent);
 }
+abbr {
+    text-decoration: underline dotted var(--alt-accent);
+}
 blockquote {
     margin: vertical-rythm('base', 'txt', 1.5);
     padding: vertical-rythm('base', 'txt', .5);
@@ -73,6 +76,35 @@ blockquote {
 cite {
     @include fluid-typo-size('small', 'txt');
     font-style: normal;
+}
+ul {
+    list-style-position: inside;
+    & ::marker { 
+        color: var(--alt-accent); 
+    }
+}
+ol {
+    list-style:none;
+    counter-reset: chap-and-sub-chap-numbering;
+
+    li { 
+        counter-increment: chap-and-sub-chap-numbering;
+        &:before { 
+            content: counters(chap-and-sub-chap-numbering, ".") ". ";
+            color: var(--alt-accent); 
+        }
+    }
+}
+dl {
+    margin:0;
+
+    dt {
+        @include fluid-typo-size('base', 'txt');
+        font-weight: 700;
+    }
+    dd {
+        margin-left: vertical-rythm('base', 'txt', 1);
+    }
 }
 
 footer {
