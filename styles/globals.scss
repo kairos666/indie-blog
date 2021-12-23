@@ -68,15 +68,6 @@ mark {
 abbr {
     text-decoration: underline dotted var(--alt-accent);
 }
-blockquote {
-    margin: vertical-rythm('base', 'txt', 1.5);
-    padding: vertical-rythm('base', 'txt', .5);
-    border-left: 2px solid var(--alt-accent);
-}
-cite {
-    @include fluid-typo-size('small', 'txt');
-    font-style: normal;
-}
 ul {
     list-style-position: inside;
     & ::marker { 

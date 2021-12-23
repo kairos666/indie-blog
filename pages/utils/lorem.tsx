@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Quote from '../../components/content/Quote';
 import GenericPageLayout from '../../components/layouts/GenericPageLayouts';
 
 const Lorem: NextPage = () => {
@@ -31,17 +32,14 @@ const Lorem: NextPage = () => {
                     <p><em>This line rendered as italicized text.</em></p>
                     <p><abbr title="attribute">attr</abbr></p>
                     <p><abbr title="HyperText Markup Language">HTML</abbr></p>
-                    <blockquote>
+                    <Quote>
                         <p>A well-known quote, contained in a blockquote element.</p>
-                    </blockquote>
-                    <figure>
-                        <blockquote>
-                            <p>A well-known quote, contained in a blockquote element.</p>
-                        </blockquote>
-                        <figcaption>
-                            <cite title="Source Title">Someone famous in Source Title</cite>
-                        </figcaption>
-                    </figure>
+                    </Quote>
+                    <Quote>
+                        <p>A well-known quote, contained in a blockquote element.</p>
+                        <p>A well-known quote, contained in a blockquote element.</p>
+                        <cite title="Source Title">Someone famous in Source Title</cite>
+                    </Quote>
                     <ul>
                         <li>This is a list.</li>
                         <li>It appears completely unstyled.</li>

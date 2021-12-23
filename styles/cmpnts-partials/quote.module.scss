@@ -1,0 +1,28 @@
+@import "variables";
+@import "util-functions";
+@import "typography-utilities";
+
+.blockquote {
+    margin: vertical-rythm('base', 'txt', 1.5);
+    padding: vertical-rythm('base', 'txt', .5);
+    border-left: 2px solid var(--alt-accent);
+}
+
+.blockquote-with-citation {
+    margin: vertical-rythm('base', 'txt', 1.5);
+
+    blockquote {
+        margin:0;
+        padding: vertical-rythm('base', 'txt', .5);
+        border-left: 2px solid var(--alt-accent);
+    }
+
+    figcaption {
+        padding-left: vertical-rythm('base', 'txt', .5);
+        border-left: 2px solid transparent;
+        cite {
+            @include fluid-typo-size('small', 'txt');
+            font-style: normal;
+        }
+    }
+}
