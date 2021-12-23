@@ -33,42 +33,52 @@
 }
 
 /* size proprotional to line height */
-@function vertical-rythm($type, $multiplier: 1) {
+@function vertical-rythm($type, $tag: 'txt', $custom-multiplier: 1) {
     $type-fluid-font-size: map.get($fluid-font, $type);
 
     @if not $type-fluid-font-size {
         @error '🔴 vertical-rythm - type is unknown';
     }
 
-    $start: map.get($type-fluid-font-size, minSize);
-    $end: map.get($type-fluid-font-size, maxSize);
+    $multiplier: map.get($type-fluid-font-size, lineHeight) * $custom-multiplier * tag-multiplier($tag);
+    $start: $multiplier * map.get($type-fluid-font-size, minSize);
+    $end: $multiplier * map.get($type-fluid-font-size, maxSize);
     $min-width: map.get($type-fluid-font-size, minWidthFluidRange);
     $max-width: map.get($type-fluid-font-size, maxWidthFluidRange);
 
     $font-size-fluid: fluid-px-range($start, $end, $min-width, $max-width);
-    $line-height: map.get($type-fluid-font-size, lineHeight);
-    $final-multiplier: $line-height * $multiplier;
 
     @if $end >= $start {
-        @return unquote("clamp(#{ $start * $final-multiplier }, #{ $final-multiplier } * (#{ fluid-px-range($start, $end, $min-width, $max-width) }), #{ $end * $final-multiplier })");
+        @return unquote("clamp(#{ $start }, #{ fluid-px-range($start, $end, $min-width, $max-width) }, #{ $end })");
     }
     @else {
-        @return unquote("clamp(#{ $end * $final-multiplier }, #{ $final-multiplier } * (#{ fluid-px-range($start, $end, $min-width, $max-width) }), #{ $start * $final-multiplier })");
+        @return unquote("clamp(#{ $end }, #{ fluid-px-range($start, $end, $min-width, $max-width) }, #{ $start })");
+    }
+}
+
+/* get tag multiplier */
+@function tag-multiplier($tag) {
+    @if $tag == 'txt' {
+        @return 1;
+    }
+    @else {
+        @return map.get($tag-multiplier, $tag);
     }
 }
 
 /**
  typographic utility mixins 
 **/
-@mixin fluid-typo-size($type) {
+@mixin fluid-typo-size($type, $tag: 'txt') {
     $type-fluid-font-size: map.get($fluid-font, $type);
 
     @if not $type-fluid-font-size {
         @error '🔴 fluid-typo-size - type is unknown';
     }
 
-    $start: map.get($type-fluid-font-size, minSize);
-    $end: map.get($type-fluid-font-size, maxSize);
+    $tag-multiplier: tag-multiplier($tag);
+    $start: $tag-multiplier * map.get($type-fluid-font-size, minSize);
+    $end: $tag-multiplier * map.get($type-fluid-font-size, maxSize);
     $min-width: map.get($type-fluid-font-size, minWidthFluidRange);
     $max-width: map.get($type-fluid-font-size, maxWidthFluidRange);
 

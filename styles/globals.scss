@@ -22,27 +22,34 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    @include fluid-typo-size('base');
     font-family: var(--ss-font);
     font-weight: 500;
     margin-top:0;
-    margin-bottom: vertical-rythm('base', .5);
     color: var(--darkest);
 }
 h1 {
-
+    @include fluid-typo-size('base', 'h1');
+    margin-bottom: vertical-rythm('base', 'h1', .5);
 }
 h2 {
-
+    @include fluid-typo-size('base', 'h2');
+    margin-bottom: vertical-rythm('base', 'h2', .5);
 }
 h3 {
-
+    @include fluid-typo-size('base', 'h3');
+    margin-bottom: vertical-rythm('base', 'h3', .5);
 }
 h4 {
-
+    @include fluid-typo-size('base', 'h4');
+    margin-bottom: vertical-rythm('base', 'h4', .5);
 }
 h5 {
-
+    @include fluid-typo-size('base', 'h5');
+    margin-bottom: vertical-rythm('base', 'h5', .5);
+}
+h6 {
+    @include fluid-typo-size('base', 'h6');
+    margin-bottom: vertical-rythm('base', 'h6', .5);
 }
 
 footer {
