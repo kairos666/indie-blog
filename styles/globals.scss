@@ -51,6 +51,29 @@ h6 {
     @include fluid-typo-size('base', 'h6');
     margin-bottom: vertical-rythm('base', 'h6', .5);
 }
+p {
+    @include fluid-typo-size('base', 'txt');
+    margin-top:0;
+    margin-bottom:0;
+
+    & + p {
+        margin-top: vertical-rythm('base', 'txt', .25);
+    }
+}
+mark {
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    background-color: var(--alt-accent);
+}
+blockquote {
+    margin: vertical-rythm('base', 'txt', 1.5);
+    padding: vertical-rythm('base', 'txt', .5);
+    border-left: 2px solid var(--alt-accent);
+}
+cite {
+    @include fluid-typo-size('small', 'txt');
+    font-style: normal;
+}
 
 footer {
     @include rwd('small') {

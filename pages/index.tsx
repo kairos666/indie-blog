@@ -31,6 +31,27 @@ const Home: NextPage = () => {
                     <h4>regular h4</h4>
                     <h5>regular h5</h5>
                     <h6>regular h6</h6>
+                    <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+                    <p><del>This line of text is meant to be treated as deleted text.</del></p>
+                    <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+                    <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+                    <p><u>This line of text will render as underlined.</u></p>
+                    <p><small>This line of text is meant to be treated as fine print.</small></p>
+                    <p><strong>This line rendered as bold text.</strong></p>
+                    <p><em>This line rendered as italicized text.</em></p>
+                    <p><abbr title="attribute">attr</abbr></p>
+                    <p><abbr title="HyperText Markup Language">HTML</abbr></p>
+                    <blockquote>
+                        <p>A well-known quote, contained in a blockquote element.</p>
+                    </blockquote>
+                    <figure>
+                        <blockquote>
+                            <p>A well-known quote, contained in a blockquote element.</p>
+                        </blockquote>
+                        <figcaption>
+                            <cite title="Source Title">Someone famous in Source Title</cite>
+                        </figcaption>
+                    </figure>
                 </section>
                 <section>
                     <h2>Thématiques</h2>
