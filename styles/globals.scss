@@ -13,8 +13,8 @@ body {
     // font-family: 'Quicksand', sans-serif;
     // SC fonts
     font-family: 'Great Vibes', cursive;
-    font-size: fluid-clamp(16px, 24px, 500px, 1000px);
-    line-height: 1.5;
+    font-size: fluid-font-size-clamp(24px, 16px, 500px, 1000px);
+    //line-height: fluid-clamp(120%, 160%, 500px, 1000px);
 }
 
 footer {
