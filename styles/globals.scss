@@ -97,15 +97,3 @@ dl {
         margin-left: vertical-rythm('base', 'txt', 1);
     }
 }
-
-footer {
-    @include rwd('small') {
-        background-color: blue;
-    }
-    @include rwd('medium') {
-        background-color: aquamarine;
-    }
-    @include rwd('large') {
-        background-color: navajowhite;
-    }
-}

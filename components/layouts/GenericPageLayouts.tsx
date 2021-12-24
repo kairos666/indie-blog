@@ -1,15 +1,16 @@
 import { FC } from 'react';
 import Footer from '../transverse/Footer';
 import Header from '../transverse/Header';
+import styles from '../../styles/cmpnts-partials/layouts.module.scss';
 type GenericPageLayoutProps = {};
 
 const GenericPageLayout:FC<GenericPageLayoutProps> = ({ children }) => {
     return (
-        <main>
+        <div className={ styles['generic-layout'] }>
             <Header />
-            { children }
+            <main>{ children }</main>
             <Footer />
-        </main>
+        </div>
     )
 }
 

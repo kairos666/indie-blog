@@ -1,0 +1,63 @@
+@import "variables";
+@import "breakpoints-mixin";
+@import "util-functions";
+@import "typography-utilities";
+
+.generic-layout {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+    column-gap: vertical-rythm('small', 'txt', 1);
+    row-gap: vertical-rythm('small', 'txt', 1);
+
+    @include rwd('small') {
+        column-gap: vertical-rythm('small', 'txt', 1.5);
+        row-gap: vertical-rythm('small', 'txt', 1.5);
+    }
+    @include rwd('medium') {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "header"
+            "content"
+            "footer";
+        column-gap: vertical-rythm('base', 'txt', 2);
+        row-gap: vertical-rythm('base', 'txt', 2);
+    }
+    @include rwd('large') {
+        column-gap: vertical-rythm('large', 'txt', 2);
+        row-gap: vertical-rythm('large', 'txt', 2);
+    }
+
+    & > header {
+        grid-area: header;
+    }
+
+    & > main {
+        grid-area: content;
+        margin-left: vertical-rythm('small', 'txt', 1);
+        margin-right: vertical-rythm('small', 'txt', 1);
+        
+        @include rwd('small') {
+            margin-left: vertical-rythm('small', 'txt', 1.5);
+            margin-right: vertical-rythm('small', 'txt', 1.5);
+        }
+        @include rwd('medium') {
+            margin-left: vertical-rythm('base', 'txt', 2);
+            margin-right: vertical-rythm('base', 'txt', 2);
+        }
+        @include rwd('large') {
+            margin-left: vertical-rythm('large', 'txt', 2);
+            margin-right: vertical-rythm('large', 'txt', 2);
+        }
+    }
+
+    & > footer {
+        grid-area: footer;
+    }
+}
