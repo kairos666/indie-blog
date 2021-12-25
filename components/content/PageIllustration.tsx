@@ -22,7 +22,7 @@ const PageIllustration:FC<PageIllustrationProps> = ({ children }) => {
     return (
         <figure className={ styles['page-illustration-container'] }>
             { imgNode }
-            { figcaptionNode.length !== 0
+            { figcaptionNode && figcaptionNode.length !== 0
                 ? <figcaption className={ styles['page-illustration-caption'] }>{ figcaptionNode }</figcaption>
                 : null
             }
