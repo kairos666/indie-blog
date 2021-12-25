@@ -97,3 +97,8 @@ dl {
         margin-left: vertical-rythm('base', 'txt', 1);
     }
 }
+a {
+    color: var(--alt-accent);
+    transition: color $base-transition;
+    &:hover, &:focus, &:visited { color: var(--accent); }
+}
