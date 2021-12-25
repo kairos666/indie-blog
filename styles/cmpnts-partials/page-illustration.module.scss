@@ -1,0 +1,15 @@
+@import "variables";
+@import "util-functions";
+@import "typography-utilities";
+
+.page-illustration-container {
+    img { 
+        max-width:100%; 
+        height:auto;
+        text-align: center;
+    }
+}
+
+.page-illustration-caption {
+    p { @include fluid-typo-size('small', 'txt'); }
+}
