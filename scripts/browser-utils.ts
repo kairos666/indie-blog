@@ -1,7 +1,7 @@
-const valRegexp:RegExp = /var\((.+)\)/g;
-const variableNamePatternRegexp:RegExp = /^--[^-].+$/g;
-
 const convertCSS4VarToValue = (css4Variable:string, domRef?:Element) => {
+    const valRegexp:RegExp = /var\((.+)\)/g;
+    const variableNamePatternRegexp:RegExp = /^--[^-].+$/g;
+    
     // leave early if not in browser context
     if(typeof document === 'undefined') return css4Variable;
 

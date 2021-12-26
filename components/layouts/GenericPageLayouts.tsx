@@ -1,4 +1,4 @@
-import { CSSProperties, FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Footer from '../transverse/Footer';
 import Header from '../transverse/Header';
 import styles from '../../styles/cmpnts-partials/layouts.module.scss';
@@ -11,7 +11,7 @@ const GenericPageLayout:FC<GenericPageLayoutProps> = ({ children }) => {
     // generate pattern once after mount (reading css4 variable)
     useEffect(() => {
         setBgPatternProperties(bgPattern({ bgColor: '#efefef', fill: 'var(--alt-accent)', opacity: 0.2 }));
-    }, []);
+    }, [children]);
 
     return (
         <div className={ styles['generic-layout'] } style={ bgPatternProperties }>
