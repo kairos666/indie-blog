@@ -1,0 +1,54 @@
+@use "sass:map";
+@import "variables";
+@import "util-functions";
+@import "typography-utilities";
+
+$lowest-grade-color: #70AD47;
+$low-grade-color: #ffc000;
+$medium-grade-color: #ED7D31;
+$high-grade-color: #c00000;
+$grade-width: 100px;
+$grade-slope: 15px;
+
+.list-container {
+    padding-left: $grade-width;
+
+    li {
+        position:relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -$grade-slope;
+            bottom: -$grade-slope;
+            left: -$grade-width;
+            right: calc(100% + 20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &:nth-child(1):before {
+            top:0;
+            background-color: $lowest-grade-color;
+            clip-path: polygon(0% 0%, 100% 0%, 100% unquote("calc(100% - #{ $grade-slope })"), 50% 100%, 0% unquote("calc(100% - #{ $grade-slope })"));
+        }
+        &:nth-child(2):before {
+            background-color: $low-grade-color;
+            clip-path: polygon(0% 0%, 50% $grade-slope, 100% 0%, 100% unquote("calc(100% - #{ $grade-slope })"), 50% 100%, 0% unquote("calc(100% - #{ $grade-slope })"));
+        }
+        &:nth-child(3):before {
+            background-color: $medium-grade-color;
+            clip-path: polygon(0% 0%, 50% $grade-slope, 100% 0%, 100% unquote("calc(100% - #{ $grade-slope })"), 50% 100%, 0% unquote("calc(100% - #{ $grade-slope })"));
+        }
+        &:nth-child(4):before {
+            bottom:0;
+            background-color: $high-grade-color;
+            clip-path: polygon(0% 0%, 50% $grade-slope, 100% 0%, 100% 100%, 0% 100%);
+        }
+    }
+
+    li + li {
+        margin-top: $grade-slope;
+    }
+}

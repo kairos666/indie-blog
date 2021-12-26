@@ -1,3 +1,4 @@
+@use "sass:map";
 @import "variables";
 @import "breakpoints-mixin";
 @import "util-functions";
@@ -40,8 +41,11 @@
 
     & > main {
         grid-area: content;
+        max-width: 1200px;
         margin-left: vertical-rythm('small', 'txt', 1);
         margin-right: vertical-rythm('small', 'txt', 1);
+        max-width: map.get($values-breakpoints, 'md-limit');
+        justify-self: center;
         
         @include rwd('small') {
             margin-left: vertical-rythm('small', 'txt', 1.5);

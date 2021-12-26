@@ -33,22 +33,27 @@ h1 {
 }
 h2 {
     @include fluid-typo-size('base', 'h2');
+    margin-top: vertical-rythm('base', 'h2', 1);
     margin-bottom: vertical-rythm('base', 'h2', .5);
 }
 h3 {
     @include fluid-typo-size('base', 'h3');
+    margin-top: vertical-rythm('base', 'h3', 1);
     margin-bottom: vertical-rythm('base', 'h3', .5);
 }
 h4 {
     @include fluid-typo-size('base', 'h4');
+    margin-top: vertical-rythm('base', 'h4', 1);
     margin-bottom: vertical-rythm('base', 'h4', .5);
 }
 h5 {
     @include fluid-typo-size('base', 'h5');
+    margin-top: vertical-rythm('base', 'h5', 1);
     margin-bottom: vertical-rythm('base', 'h5', .5);
 }
 h6 {
     @include fluid-typo-size('base', 'h6');
+    margin-top: vertical-rythm('base', 'h6', 1);
     margin-bottom: vertical-rythm('base', 'h6', .5);
 }
 p {
@@ -70,6 +75,14 @@ abbr {
 }
 ul {
     list-style-position: inside;
+    margin-top: vertical-rythm('base', 'txt', .5);
+    margin-bottom: vertical-rythm('base', 'txt', .5);
+    padding-left: vertical-rythm('base', 'txt', 1);
+
+    li + li {
+        margin-top: vertical-rythm('base', 'txt', .5);
+    }
+
     & ::marker { 
         color: var(--alt-accent); 
     }
@@ -77,6 +90,9 @@ ul {
 ol {
     list-style:none;
     counter-reset: chap-and-sub-chap-numbering;
+    margin-top: vertical-rythm('base', 'txt', .5);
+    margin-bottom: vertical-rythm('base', 'txt', .5);
+    padding-left: vertical-rythm('base', 'txt', 1);
 
     li { 
         counter-increment: chap-and-sub-chap-numbering;
@@ -84,6 +100,10 @@ ol {
             content: counters(chap-and-sub-chap-numbering, ".") ". ";
             color: var(--alt-accent); 
         }
+    }
+
+    li + li {
+        margin-top: vertical-rythm('base', 'txt', .5);
     }
 }
 dl {

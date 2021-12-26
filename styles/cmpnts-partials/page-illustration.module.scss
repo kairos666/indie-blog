@@ -3,6 +3,9 @@
 @import "typography-utilities";
 
 .page-illustration-container {
+    margin:0;
+    margin-bottom: vertical-rythm('base', 'txt', 1.5);
+    
     img { 
         max-width:100%; 
         height:auto;
