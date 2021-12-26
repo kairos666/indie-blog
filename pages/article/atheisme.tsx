@@ -38,8 +38,8 @@ const AtheismCustomArticle: NextPage = () => {
                         <h2>Qu'est-ce que l'athéisme exactement ?</h2>
                         <p>Étymologiquement, "athée" provient du grec ancien "átheos", et se traduit littéralement par "sans dieu". une analyse rapide nous permet de noter deux éléments importants:</p>
                         <ol>
-                            <li>L'athéiste est celui <i>sans théisme</i>. On doit tout d'abord noter que ce mot n'affirme rien, ni positivement ni négativement, sur la notion de théisme elle-même.</li>
-                            <li><i>Sans</i> peut être compris de façon neutre, <i>une absence</i> ou bien avec une connotation négative <i>un manque</i>. Cette nuance d'interprétation est renforcée par l'usage du mot au cours de l'histoire qui est passé d'une insulte signifiant "impie" au sens neutre utilisé depuis.
+                            <li>L'athéiste c'est celui <i>sans théisme</i>. On doit tout d'abord noter qu'ici rien n'est affirmer, ni positivement, ni négativement, sur la notion de théisme elle-même.</li>
+                            <li>Le mot <i>Sans</i> indique <i>une absence</i> ou <i>un manque</i>. On peut donc y voir un constat neutre ou négatif.<br/> Ces nuances sont légitimées par l'usage du mot <i>athée</i> au cours de l'histoire qui est passé d'une insulte signifiant "impie" au sens philosophique neutre utilisé ensuite.
                                 <Quote>
                                     <p>En Grec, atheos et atheotēs (…) atheos était un terme de censure sévère et une condamnation morale (…) il fallut attendre plus tard pour que le terme soit utilisé dans un sens philosophique.</p>
                                     <cite title="Atheism in Pagan Antiquity">Drachmann, AB Atheism in Pagan Antiquity</cite>
@@ -49,17 +49,17 @@ const AtheismCustomArticle: NextPage = () => {
                         <p>Pour la suite de l'article j'utiliserai le sens philosophique, c'est-à-dire la version moderne où <i>sans</i> veux dire <i>absence</i> sans connotation péjorative. De plus, je partirai d'une vision monothéiste de dieu même si les notions abordées restent valables dans le cas du polythéisme.</p>
                         <p>Désormais nous faisons face à l'obstacle suivant, pour définir ce qu'est <i>être sans théisme</i>, il nous faut définir la notion de théisme elle-même.</p>
                         <h3>Le théisme et le déisme</h3>
-                        <p>Le théisme, et le déisme, c'est la croyance en l'existence d'un être suprême à l'origine de la création de l'univers. Les caractéristique d'un tel être suprême sont: une conscience omnisciente, éternelle, totipotente, dont l'existence ne nécessite pas de cause extérieure à lui-même.</p>
+                        <p>Le théisme, et le déisme, sont la croyance en l'existence d'un être suprême. Les caractéristique d'un tel être suprême sont: une conscience omnisciente, éternel, totipotence, dont l'existence ne nécessite pas de cause extérieure à lui-même, à l'origine de la création de toutes choses.</p>
                         <Quote>
-                            <p>strictly and properly called Theists, who affirm, that a perfectly conscious understanding being, or mind, existing of itself from eternity, was the cause of all other things.</p>
-                            <cite title="Collier's Encyclopedia">Ralph Cudworth (1617-1688), première définition connue du terme</cite>
+                            <p>Les théistes, proprement et strictement nommés comme tels, affirment qu'un être éternel à la conscience et la compréhension parfaite existe. Cet être est cause de lui-même et de toute choses.</p>
+                            <cite title="Collier's Encyclopedia">Ralph Cudworth (1617-1688), première définition connue du terme (traduction de l'anglais par mes soins)</cite>
                         </Quote>
                         <p>Un <strong>théiste</strong> accepte les révélations et doctrines de sa foi religieuse comme divinement inspirées. Il croit que son dieu intervient directement dans les affaires humaines au travers de moyens surnaturels comme les miracles.</p>
                         <p>Le <strong>déiste</strong> est similaire à une différence majeure prêt, il rejette les révélations et tous les actes surnaturels qui pourraient être imputé à l'être suprême au nom de la raison. Le déiste souscrit donc à une approche naturaliste et rationnelle, avec en toile de fond, un être suprême qui existe mais n'intervient pas dans les affaires de l'univers au-delà de sa création.</p>
                         <h3>Différentes formes d'athéisme</h3>
                         <p>Si l'on reprend la définition initiale: <i>l'athéisme</i> est le fait d'être <i>sans théisme</i>, c'est-à-dire, finalement, sans affiliation à une des religions révélèes.</p>
                         <p>En même temps, rien n'indique qu'on ne puisse être à la fois <i>athée et déiste</i>. Accepter la raison et la science comme unique moyen de connaître le monde, n'implique pas de nier l'existence d'un être suprême. Ce cas de figure est d'autant plus pertinent à une époque où de nombreuses personnes se revendiquent à la fois rationalistes et porteuses d'une spiritualité personnelle.<br/><small>C'est probablement la position la plus personnelle dans cet article. Je considère pour ma part que le déisme est compatible avec l'athéisme.</small></p>
-                        <p>Tout cela est dénote le besoin d'encore affiner notre définition d'athéisme pour en séparer les différentes interprétations:</p>
+                        <p>Tout cela dénote le besoin d'encore affiner notre définition d'athéisme pour en séparer les différentes interprétations:</p>
                         <ol>
                             <li>Est <strong>athée déiste</strong> celui qui croit en même temps en un être suprême et en la raison. Il ne s'associe avec aucune religion mais croit en un être suprême forcément compatible avec une vision non surnaturelle du monde.</li>
                             <li>Est <strong>agnostique</strong> celui qui considère que l'existence d'une entité suprême est une information inaccessible. Il refuse de se prononcer sur un domaine métaphysique qui par essence échappe au raisonnement naturaliste.</li>
@@ -68,7 +68,7 @@ const AtheismCustomArticle: NextPage = () => {
                         </ol>
                     </section>
                     <section>
-                        <h2>Quand puis-je me dire athée ?</h2>
+                        <h2>A quel moment puis-je me dire athée ?</h2>
                         <p>Au regard de la définition d'athéisme décrite en détail ci-dessus, la réponse variera suivant le sens retenu: absence de théisme, agnosticisme, athéisme négatif, athéisme positif.</p>
                         <p>Cela n'arrange guère nos affaires. Pour simplifier l'exercice, nous allons découper ce questionnement en deux parties complémentaires:</p>
                         <h3>La question réciproque, suis-je théiste ?</h3>
@@ -76,7 +76,7 @@ const AtheismCustomArticle: NextPage = () => {
                         <p>Vous avez passé en revue tous les dieux de l'humanité et aucun ne vous à paru plus véridique que son voisin ? Si oui alors c'est officiel vous n'êtes pas théiste, donc athéiste.</p>
                         <p>Finalement c'était simple. Reste à savoir jusqu'à quel point vous êtes athée, mais ça n'obère pas du fait que oui vous êtes bel et bien athée.</p>
                         <h3>Le spectre de l'athéisme</h3>
-                        <p>Ici on en revient à la définition d'un être suprême: une conscience omnisciente, éternelle, totipotente, dont l'existence ne nécessite pas de cause extérieure à elle-même, qui est la cause originel de l'univers. <br/>Plus un tel être suprême vous semble plausible, nécessaire, certain, et moins votre athéisme sera fort sur le spectre.</p>
+                        <p>Ici on en revient à la définition d'un être suprême: une conscience omnisciente, éternelle, totipotente, dont l'existence ne nécessite pas de cause extérieure à elle-même, qui est la cause originelle de l'univers. <br/>Plus un tel être suprême vous semble plausible, nécessaire, certain, et moins votre athéisme sera fort sur le spectre.</p>
                         <ol className={ spectrumListStyles['list-container'] }>
                             <li>Un être suprême existe, <strong>j'y crois avec certitude</strong>. Je suis <strong>athée déiste</strong>.</li>
                             <li><strong>Je ne sais pas</strong> si un être suprême existe, est nécessaire ou même plausible. Je suis <strong>agnostique</strong>.</li>
