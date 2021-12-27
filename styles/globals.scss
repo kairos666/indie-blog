@@ -122,3 +122,21 @@ a {
     transition: color $base-transition;
     &:hover, &:focus, &:visited { color: var(--accent); }
 }
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    $track-color: var(--alt-accent);
+    $track-bg-color: #efefef;
+    $track-width: 1px;
+
+    background-color: $track-bg-color;
+    background: linear-gradient(90deg, $track-bg-color 0%, $track-bg-color unquote("calc(50% - #{ math.div($track-width, 2) })"), $track-color unquote("calc(50% - #{ math.div($track-width, 2) })"), $track-color unquote("calc(50% + #{ math.div($track-width, 2) })"), $track-bg-color unquote("calc(50% + #{ math.div($track-width, 2) })"), $track-bg-color 100%); 
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: var(--alt-accent);
+}
