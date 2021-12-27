@@ -1,0 +1,17 @@
+@import "variables";
+@import "util-functions";
+@import "typography-utilities";
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: vertical-rythm('small', 'txt', 0.5);
+    padding-bottom: vertical-rythm('small', 'txt', 0.5);
+}
+
+.footer-copyright {
+    @include fluid-typo-size('small', 'txt');
+    font-weight:500;
+    color: var(--accent);
+}
