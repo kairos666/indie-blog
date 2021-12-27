@@ -21,12 +21,6 @@
         row-gap: vertical-rythm('small', 'txt', 1.5);
     }
     @include rwd('medium') {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        grid-template-areas:
-            "header"
-            "content"
-            "footer";
         column-gap: vertical-rythm('base', 'txt', 2);
         row-gap: vertical-rythm('base', 'txt', 2);
     }
