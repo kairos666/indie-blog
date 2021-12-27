@@ -27,7 +27,18 @@
 .header-inner-container {
     margin-left:auto;
     margin-right:auto;
+    margin-top: vertical-rythm('small', 'txt', 0.5);
+    margin-bottom: vertical-rythm('small', 'txt', 0.5);
     max-width: map.get($values-breakpoints, 'md-limit');
+}
+
+.header-home-link {
+    text-decoration: none;
+    text-shadow: 0 0 0 transparent;
+transition: text-shadow $base-transition;
+    &:hover, &:focus, &:active {
+        text-shadow: 0 0 8px var(--alt-accent);
+    }
 }
 
 .header-logo {
@@ -42,4 +53,5 @@
     margin-left: 1rem;
     font-family: var(--sc-font);
     @include fluid-typo-size('base', 'h4');
+    color: var(--darkest);
 }
