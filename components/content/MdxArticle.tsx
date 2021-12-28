@@ -3,6 +3,7 @@ import {getMDXComponent} from 'mdx-bundler/client';
 import Quote from './Quote';
 import PageIllustration from './PageIllustration';
 import ExternalLink from './ExternalLink';
+import InternalLink from './InternalLink';
 
 type MdxArticleProps = {
     code: string,
@@ -22,7 +23,8 @@ const  MdxArticle:FC<MdxArticleProps> = ({code, frontmatter}) => {
                 <MdxComponent components={{
                     Quote: Quote,
                     PageIllustration: PageIllustration,
-                    a: (ExternalLink as any)
+                    a: (ExternalLink as any),
+                    InternalLink: InternalLink
                 }}/>
             </main>
         </>
