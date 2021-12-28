@@ -29,7 +29,7 @@ const AtheismCustomArticle: NextPage = () => {
                         <time dateTime="2021-12-27">27 décembre 2021</time>
                         <h1>L'athéisme, suis-je athée ?</h1>
                         <PageIllustration>
-                            <img src="/illustrations/samuel-martins-3U7HcqkIbb4-unsplash.jpg" title="homme agenouillé, yeux fermés, tête dans sa main. Une bible et ses lunettes posés à ses côtés. La position peut-être comprise aussi bien comme une prière, une réflexion intense, voir même un accablement face au chagrin." width="1920" height="1280" />
+                            <img src="/illustrations/samuel-martins-3U7HcqkIbb4-unsplash.jpg" alt="homme agenouillé, yeux fermés, tête dans sa main. Une bible et ses lunettes posés à ses côtés. La position peut-être comprise aussi bien comme une prière, une réflexion intense, voir même un accablement face au chagrin." width="1920" height="1280" />
                             <p>Photo de <a href="https://unsplash.com/@samuelmartins7" target="_blank" rel="noopener noreferrer">Samuel Martins</a> sur <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a></p>
                         </PageIllustration>
                     </header>
