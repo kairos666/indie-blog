@@ -14,22 +14,62 @@ Here's a **neat** demo:
     Photo de [Samuel Martins](https://unsplash.com/@samuelmartins7) sur [Unsplash](https://unsplash.com)
 </PageIllustration>
 
-# Heading (rank 1)
+# generic text styles syntax - pure markdown
+**This line rendered as bold text.**
+
+*This line rendered as italicized text.*
+
+***This line rendered as both bold and italicized text***
+
+# generic text style syntax - MDX flavor only
+You can use the mark tag to <mark>highlight</mark> text.
+
+Start of paragraph... <del>This line of text is meant to be treated as deleted text.</del> ...end of paragraph.
+
+Start of paragraph... <s>This line of text is meant to be treated as no longer accurate.</s> ...end of paragraph.
+
+Start of paragraph... <ins>This line of text is meant to be treated as an addition to the document.</ins> ...end of paragraph.
+
+Start of paragraph... <u>This line of text will render as underlined.</u> ...end of paragraph.
+
+Start of paragraph... <small>This line of text is meant to be treated as fine print.</small> ...end of paragraph.
+
+Start of paragraph... <abbr title="attribute">attr</abbr> ...end of paragraph.
+
+Start of paragraph... <abbr title="HyperText Markup Language">HTML</abbr> ...end of paragraph.
+
 ## Heading 2
+Links to navigate inside the website (use NextJS Link)
 <InternalLink href="/">page d'accueil</InternalLink>
 <InternalLink href="/article/atheisme">page d'article sur l'athéisme</InternalLink>
-### 3
-#### 4
-##### 5
-###### 6
 
-> Block quote
+<p><small>All regular markdown links are receiving target="_blank" rel="noopener noreferrer"</small></p>
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+> Basic quote without specific styling (when adding \<cite\> tag use Quote component instead)
 
 * Unordered
+    * nested unoredered
+    * nested list
 * List
+* contains a nested ordered list
+    1. nested ordered
+        * sub nesting unordered
+        * sub nesting list 
+    2. nested list
 
 1. Ordered
+    1. nested ordered
+    2. nested list
 2. List
+3. contains a nested unordered list
+    * nested unordered
+    * nested list
+
+<p><small>Introduce nested lists with 4 spaces OR 1 tab per nesting level</small></p>
 
 A paragraph, introducing a thematic break:
 

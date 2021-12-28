@@ -23,7 +23,7 @@ const Quote:FC<QuoteProps> = ({ children }) => {
     if(!citationNode) {
         // simple quote without citation
         return (
-            <blockquote className={ styles.blockquote }>
+            <blockquote>
                 { children }
             </blockquote>
         )

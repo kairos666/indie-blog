@@ -82,7 +82,7 @@ ul {
     margin-bottom: vertical-rythm('base', 'txt', .5);
     padding-left: vertical-rythm('base', 'txt', 1);
 
-    li + li {
+    > li + li {
         margin-top: vertical-rythm('base', 'txt', .5);
     }
 
@@ -97,7 +97,7 @@ ol {
     margin-bottom: vertical-rythm('base', 'txt', .5);
     padding-left: vertical-rythm('base', 'txt', 1);
 
-    li { 
+    > li { 
         counter-increment: chap-and-sub-chap-numbering;
         &:before { 
             content: counters(chap-and-sub-chap-numbering, ".") ". ";
@@ -105,7 +105,7 @@ ol {
         }
     }
 
-    li + li {
+    > li + li {
         margin-top: vertical-rythm('base', 'txt', .5);
     }
 }
@@ -124,6 +124,12 @@ a {
     color: var(--alt-accent);
     transition: color $base-transition;
     &:hover, &:focus, &:visited { color: var(--accent); }
+}
+
+blockquote {
+    margin: vertical-rythm('base', 'txt', 1.5);
+    padding: vertical-rythm('base', 'txt', .5);
+    border-left: 2px solid var(--alt-accent);
 }
 
 body::-webkit-scrollbar {
