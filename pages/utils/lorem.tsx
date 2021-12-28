@@ -12,9 +12,9 @@ const Lorem: NextPage = () => {
             </Head>
             <GenericPageLayout>
                 <section>
-                    <h1 style={ { fontFamily: 'cheddar gothic', fontSize: '3rem', fontWeight: 400 } }>L'iridescence industrielle de la méchanceté</h1>
-                    <h1 style={ { fontFamily: 'metropolis', fontSize: '3rem', fontWeight: 400 } }>L'opalescente foisonnance de l'art nouveau Nancéen</h1>
-                    <h1 style={ { fontFamily: 'ever looser', fontSize: '3rem', fontWeight: 400 } }>L'irruption du grondement sourd de la cité</h1>
+                    <h1 style={ { fontFamily: 'cheddar gothic', fontSize: '3rem', fontWeight: 400 } }>L&apos;iridescence industrielle de la méchanceté</h1>
+                    <h1 style={ { fontFamily: 'metropolis', fontSize: '3rem', fontWeight: 400 } }>L&apos;opalescente foisonnance de l&apos;art nouveau Nancéen</h1>
+                    <h1 style={ { fontFamily: 'ever looser', fontSize: '3rem', fontWeight: 400 } }>L&apos;irruption du grondement sourd de la cité</h1>
                     <hr />
                     <h1>regular h1</h1>
                     <h2>regular h2</h2>
@@ -43,7 +43,7 @@ const Lorem: NextPage = () => {
                     <ul>
                         <li>This is a list.</li>
                         <li>It appears completely unstyled.</li>
-                        <li>Structurally, it's still a list.</li>
+                        <li>Structurally, it&apos;s still a list.</li>
                         <li>However, this style only applies to immediate child elements.</li>
                         <li>Nested lists:
                             <ul>
@@ -57,7 +57,7 @@ const Lorem: NextPage = () => {
                     <ol>
                         <li>This is a list.</li>
                         <li>It appears completely unstyled.</li>
-                        <li>Structurally, it's still a list.</li>
+                        <li>Structurally, it&apos;s still a list.</li>
                         <li>However, this style only applies to immediate child elements.</li>
                         <li>Nested lists:
                             <ol>
