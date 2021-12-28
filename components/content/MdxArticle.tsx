@@ -2,6 +2,7 @@ import { FC, useMemo } from 'react';
 import {getMDXComponent} from 'mdx-bundler/client';
 import Quote from './Quote';
 import PageIllustration from './PageIllustration';
+import ExternalLink from './ExternalLink';
 
 type MdxArticleProps = {
     code: string,
@@ -20,7 +21,8 @@ const  MdxArticle:FC<MdxArticleProps> = ({code, frontmatter}) => {
             <main>
                 <MdxComponent components={{
                     Quote: Quote,
-                    PageIllustration: PageIllustration
+                    PageIllustration: PageIllustration,
+                    a: (ExternalLink as any)
                 }}/>
             </main>
         </>
