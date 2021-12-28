@@ -78,7 +78,7 @@ const AtheismCustomArticle: NextPage = () => {
                         <p>Finalement c&apos;était simple. Reste à savoir jusqu&apos;à quel point vous êtes athée, mais ça n&apos;obère pas du fait que oui vous êtes bel et bien athée.</p>
                         <h3>Le spectre de l&apos;athéisme</h3>
                         <p>Ici on en revient à la définition d&apos;un être suprême: une conscience omnisciente, éternelle, totipotente, dont l&apos;existence ne nécessite pas de cause extérieure à elle-même, qui est la cause originelle de l&apos;univers. <br/>Plus un tel être suprême vous semble plausible, nécessaire, certain, et moins votre athéisme sera fort sur le spectre.</p>
-                        <ol className={ spectrumListStyles['list-container'] }>
+                        <ol className={ spectrumListStyles['spectrum-list'] }>
                             <li>Un être suprême existe, <strong>j&apos;y crois avec certitude</strong>. Je suis <strong>athée déiste</strong>.</li>
                             <li><strong>Je ne sais pas</strong> si un être suprême existe, est nécessaire ou même plausible. Je suis <strong>agnostique</strong>.</li>
                             <li>Un être suprême <strong>n&apos;est pas nécessaire</strong> pour comprendre l&apos;univers, j&apos;applique le rasoir d&apos;Ockham. Par contre, je ne sais pas si une telle entité existe ou est plausible. Je suis <strong>athéiste négatif</strong>.</li>

@@ -3,14 +3,13 @@
 @import "util-functions";
 @import "typography-utilities";
 
-$lowest-grade-color: #70AD47;
-$low-grade-color: #ffc000;
-$medium-grade-color: #ED7D31;
-$high-grade-color: #c00000;
-$grade-width: 100px;
-$grade-slope: 15px;
-
-.list-container {
+.spectrum-list {
+    $lowest-grade-color: #70AD47;
+    $low-grade-color: #ffc000;
+    $medium-grade-color: #ED7D31;
+    $high-grade-color: #c00000;
+    $grade-width: 100px;
+    $grade-slope: 15px;
     padding-left: $grade-width;
 
     li {

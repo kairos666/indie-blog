@@ -9,6 +9,9 @@
 @import "fonts";
 @import "root";
 
+// utility classes (CSS only) for articles
+@import "custom-partials/spectrum-list.module.scss";
+
 html,
 body {
     $base-fluid-font-size: map.get($fluid-font, 'base');
