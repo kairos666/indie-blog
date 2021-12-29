@@ -1,83 +1,109 @@
-import type { NextPage } from 'next';
+import { listFilesInFolder, parseFrontmatter, readFile } from '../server-only-scripts/parser-utils';
+import { format } from 'date-fns';
+
+import type { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import GenericPageLayout from '../components/layouts/GenericPageLayouts';
 
-const Home: NextPage = () => {
+type HomeProps = {
+    host: string,
+    chronoArticles: {
+        title: string,
+        description: string,
+        category: string,
+        tags: string[],
+        published: string,
+        publishedHumanReadable: string,
+        url: string
+    }[]
+}
+
+const Home: NextPage<HomeProps> = ({ host, chronoArticles }) => {
+    const pageUrl:string = host;
+    const title:string = 'Kaïros';
+    const description:string = "Page d'accueil du cabinet de curiosités numériques";
+
     return (
         <>
             <Head>
-                <title>Kaïros - accueil</title>
-                <meta name="description" content="Page d'accueil du cabinet de curiosités numériques" />
-                <link rel="icon" href="/favicon.ico" sizes="any" />
-                <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-                <link rel="apple-touch-icon" href="icon.png" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="manifest" href="site.webmanifest" />
-                <meta name="theme-color" content="#fafafa" />
-                <meta property="og:title" content=""/>
-                <meta property="og:type" content=""/>
-                <meta property="og:url" content=""/>
-                <meta property="og:image" content=""/>
+                <title>{ title }</title>
+                <meta name="description" content={ description } />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={ pageUrl } />
+                <meta property="og:title" content={ title } />
+                <meta property="og:description" content={ description } />
+                <meta property="twitter:card" content="summary_large_image"/>
+                <meta property="twitter:url" content={ pageUrl }/>
+                <meta property="twitter:title" content={ title } />
+                <meta property="twitter:description" content={ description } />
             </Head>
             <GenericPageLayout>
                 <section>
-                    <h2>Thématiques</h2>
-                    <ol>
-                        <li>
-                            <Link href="/utils/lorem">
-                                <a title="page technique">
-                                    <span>Lorem ipsum dolor sit amet</span>
-                                    <time dateTime="2021-12-18">23 décembre 2021</time>
-                                </a>
-                            </Link>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span>Histoires rêvées</span>
-                                <time dateTime="2021-12-20">20 décembre 2021</time>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span>Chroniques de xiao xinzang</span>
-                                <time dateTime="2021-12-19">19 décembre 2021</time>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span>Dieux illogiques</span>
-                                <time dateTime="2021-12-18">18 décembre 2021</time>
-                            </a>
-                        </li>
-                    </ol>
-                </section>
-                <section>
                     <h2>Articles</h2>
-                    <ol>
-                        <li>
-                            <a href="#">
-                                <span>Attaque de Kaiju: manuel de survie</span>
-                                <time dateTime="2021-12-17">17 décembre 2021</time>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span>Attaque de zombies: manuel de survie</span>
-                                <time dateTime="2021-12-16">16 décembre 2021</time>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span>Attaque de fanatiques religieux: manuel de survie</span>
-                                <time dateTime="2021-12-15">15 décembre 2021</time>
-                            </a>
-                        </li>
-                    </ol>
+                    <ul>
+                        { chronoArticles.map(articleLink => {
+                            return (
+                                <li key={ `${ articleLink.url }` }>
+                                    <Link href={ articleLink.url }>
+                                        <a>
+                                            <span>{ articleLink.title }</span>
+                                            <span>{ articleLink.description }</span>
+                                            <time dateTime={ articleLink.published }>{ articleLink.publishedHumanReadable }</time>
+                                            <span>{ articleLink.category }</span>
+                                            <span>{ articleLink.tags }</span>
+                                        </a>
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </section>
             </GenericPageLayout>
         </>
     )
+}
+
+export async function getStaticProps(_context:GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
+    // chronologically sorted list of articles
+    const mdxContentFilePathList = await listFilesInFolder('content');
+    const processedArticleList = await Promise.all(mdxContentFilePathList.map(filePath => {
+        return readFile(`content/${ filePath }`)
+            .then(fileString => parseFrontmatter(fileString));
+    }));
+
+    // sort articles chronoligically and format data for JSX rendering
+    const sortedAndFormattedArticleList = processedArticleList
+        .sort((a, b) => {
+            const aTimestamp:number = (a.data.published as Date).getTime();
+            const bTimestamp:number = (b.data.published as Date).getTime();
+
+            return (aTimestamp < bTimestamp)
+                ? -1
+                : (aTimestamp > bTimestamp)
+                ? 1
+                : 0; 
+        })
+        .map(({ data }) => {
+            return {
+                title: data.title,
+                description: data.description,
+                category: data.category,
+                tags: data.tags,
+                published: format(data.published, 'yyyy-MM-dd'),
+                publishedHumanReadable: format(data.published, 'do MMMM yyyy'),
+                url: (data.category)
+                    ? `/article/${data.category}/${data.slug}`
+                    : `/article/${data.slug}`
+            }
+        });
+
+    return {
+        props: {
+            host: process.env.WEBSITE_HOST,
+            chronoArticles: sortedAndFormattedArticleList
+        }
+    };
 }
 
 export default Home;
