@@ -4,30 +4,25 @@ import Quote from './Quote';
 import PageIllustration from './PageIllustration';
 import ExternalLink from './ExternalLink';
 import InternalLink from './InternalLink';
+import ArticleHeader from './ArticleHeader';
+import { ArticleFrontmatter } from '../../types/PageTypes';
 
 type MdxArticleProps = {
     code: string,
-    frontmatter: any
+    frontmatter: ArticleFrontmatter
 }
 
-const  MdxArticle:FC<MdxArticleProps> = ({code, frontmatter}) => {
+const  MdxArticle:FC<MdxArticleProps> = ({code}) => {
     const MdxComponent = useMemo(() => getMDXComponent(code), [code]);
 
     return (
-        <>
-            <header>
-                <h1>{ frontmatter.title }</h1>
-                <p>{ frontmatter.description }</p>
-            </header>
-            <main>
-                <MdxComponent components={{
-                    Quote: Quote,
-                    PageIllustration: PageIllustration,
-                    a: (ExternalLink as any),
-                    InternalLink: InternalLink
-                }}/>
-            </main>
-        </>
+        <MdxComponent components={{
+            Quote: Quote,
+            PageIllustration: PageIllustration,
+            a: (ExternalLink as any),
+            InternalLink: InternalLink,
+            ArticleHeader: ArticleHeader
+        }}/>
     )
 }
 
