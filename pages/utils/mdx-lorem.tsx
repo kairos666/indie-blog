@@ -33,7 +33,7 @@ const MdxLorem: NextPage<MdxLoremProps> = ({ code, frontmatter }) => {
 export async function getStaticProps(_context:GetStaticPropsContext): Promise<GetStaticPropsResult<MdxLoremProps>> {
     // read MDX file and generate react component (serializable)
     const mdxResult = await bundleMDX({
-        file: path.join(process.cwd(), 'content/test-post.mdx'),
+        file: path.join(process.cwd(), 'content/2021-12-20-test-post.mdx'),
         cwd: path.join(process.cwd(), 'content/')
     });
     const { code, frontmatter } = mdxResult;
