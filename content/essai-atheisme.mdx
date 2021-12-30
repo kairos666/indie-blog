@@ -8,7 +8,7 @@ tags: [philosophie, religion]
 slug: atheisme
 ---
 
-<ArticleHeader publishedDate={ frontmatter.published } tags={ frontmatter.tags }>
+<ArticleHeader publishedDate={ frontmatter?.published?.toISOString() } tags={ frontmatter.tags }>
     # L'athéisme, suis-je athée ?
     <PageIllustration>
         <img src="/illustrations/samuel-martins-3U7HcqkIbb4-unsplash.jpg" alt="homme agenouillé, yeux fermés, tête dans sa main. Une bible et ses lunettes posés à ses côtés. La position peut-être comprise aussi bien comme une prière, une réflexion intense, voir même un accablement face au chagrin." width="1920" height="1280" />

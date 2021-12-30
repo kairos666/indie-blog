@@ -80,10 +80,10 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult<ArticlePath
     const hiddenArticlesCount:number = uniqueCategories.filter(cat => cat === 'hidden').length ?? 0;
     uniqueTags = Array.from(new Set(uniqueTags).values());
     uniqueCategories = Array.from(new Set(uniqueCategories).values());
-    console.log('MDX Articles --- ');
-    console.log(`${ uniqueFiles.length } article files (${ hiddenArticlesCount } hidden)`);
-    console.log(`available categories: ${ uniqueCategories.join(', ') }`);
-    console.log(`available tags: ${ uniqueTags.join(', ') }`);
+    console.log('\n', 'MDX Articles --- ');
+    console.log('\n', `${ uniqueFiles.length } article files (${ hiddenArticlesCount } hidden)`);
+    console.log('\n', `available categories: ${ uniqueCategories.join(', ') }`);
+    console.log('\n', `available tags: ${ uniqueTags.join(', ') }`);
 
     return {
         paths,
@@ -110,7 +110,7 @@ export async function getStaticProps(context:GetStaticPropsContext): Promise<Get
         props: {
             host: process.env.WEBSITE_HOST,
             code,
-            frontmatter: ({ ...frontmatter, published: frontmatter.published.toString() } as ArticleFrontmatter)
+            frontmatter: ({ ...frontmatter, published: frontmatter?.published?.toISOString() } as ArticleFrontmatter)
         }
     };
 }
