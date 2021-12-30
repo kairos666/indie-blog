@@ -5,6 +5,7 @@ import type { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next
 import Head from 'next/head';
 import Link from 'next/link';
 import GenericPageLayout from '../components/layouts/GenericPageLayouts';
+import Time from '../components/content/Time';
 
 type HomeProps = {
     host: string,
@@ -14,7 +15,6 @@ type HomeProps = {
         category: string,
         tags: string[],
         published: string,
-        publishedHumanReadable: string,
         url: string
     }[]
 }
@@ -49,7 +49,7 @@ const Home: NextPage<HomeProps> = ({ host, chronoArticles }) => {
                                         <a>
                                             <span>{ articleLink.title }</span>
                                             <span>{ articleLink.description }</span>
-                                            <time dateTime={ articleLink.published }>{ articleLink.publishedHumanReadable }</time>
+                                            <Time dateTime={ articleLink.published } />
                                             <span>{ articleLink.category }</span>
                                             <span>{ articleLink.tags }</span>
                                         </a>
@@ -91,7 +91,6 @@ export async function getStaticProps(_context:GetStaticPropsContext): Promise<Ge
                 category: data.category,
                 tags: data.tags,
                 published: format(data.published, 'yyyy-MM-dd'),
-                publishedHumanReadable: format(data.published, 'do MMMM yyyy'),
                 url: (data.category)
                     ? `/article/${data.category}/${data.slug}`
                     : `/article/${data.slug}`

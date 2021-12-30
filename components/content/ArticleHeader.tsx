@@ -1,17 +1,18 @@
 import { FC } from 'react';
+import Time from './Time';
 
 type ArticleHeaderProps = {
-    publishDate: string,
+    publishedDate: string,
     tags: null|string[]
 };
 
-const ArticleHeader:FC<ArticleHeaderProps> = ({ publishDate, tags, children }) => {
+const ArticleHeader:FC<ArticleHeaderProps> = ({ publishedDate, tags, children }) => {
     // leave early if no trags provided
     if(!tags || tags.length === 0) return null;
-
+    
     return (
         <header>
-            <time dateTime={ publishDate }>27 décembre 2021</time>
+            <Time dateTime={ publishedDate } />
             <ArticleTags tags={ tags } />
             { children }
         </header>
