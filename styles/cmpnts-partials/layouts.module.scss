@@ -1,6 +1,6 @@
 @use "sass:map";
 @import "variables";
-@import "breakpoints-mixin";
+@import "include-media-mixins";
 @import "util-functions";
 @import "typography-utilities";
 
@@ -13,18 +13,20 @@
         "header"
         "content"
         "footer";
-    column-gap: vertical-rythm('small', 'txt', 1);
-    row-gap: vertical-rythm('small', 'txt', 1);
 
-    @include rwd('small') {
+    @include media('<small') {
+        column-gap: vertical-rythm('small', 'txt', 1);
+        row-gap: vertical-rythm('small', 'txt', 1);
+    }
+    @include media('>=small', '<medium') {
         column-gap: vertical-rythm('small', 'txt', 1.5);
         row-gap: vertical-rythm('small', 'txt', 1.5);
     }
-    @include rwd('medium') {
+    @include media('>=medium', '<large') {
         column-gap: vertical-rythm('base', 'txt', 2);
         row-gap: vertical-rythm('base', 'txt', 2);
     }
-    @include rwd('large') {
+    @include media('>=large') {
         column-gap: vertical-rythm('large', 'txt', 2);
         row-gap: vertical-rythm('large', 'txt', 2);
     }
@@ -35,20 +37,22 @@
 
     & > main {
         grid-area: content;
-        margin-left: vertical-rythm('small', 'txt', 1);
-        margin-right: vertical-rythm('small', 'txt', 1);
-        max-width: map.get($values-breakpoints, 'md-limit');
+        max-width: map.get($breakpoints, 'medium');
         justify-self: center;
         
-        @include rwd('small') {
+        @include media('<small') {
+            margin-left: vertical-rythm('small', 'txt', 1);
+            margin-right: vertical-rythm('small', 'txt', 1);
+        }
+        @include media('>=small', '<medium') {
             margin-left: vertical-rythm('small', 'txt', 1.5);
             margin-right: vertical-rythm('small', 'txt', 1.5);
         }
-        @include rwd('medium') {
+        @include media('>=medium', '<large') {
             margin-left: vertical-rythm('base', 'txt', 2);
             margin-right: vertical-rythm('base', 'txt', 2);
         }
-        @include rwd('large') {
+        @include media('>=large') {
             margin-left: vertical-rythm('large', 'txt', 2);
             margin-right: vertical-rythm('large', 'txt', 2);
         }

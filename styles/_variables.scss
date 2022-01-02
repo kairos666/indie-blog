@@ -10,23 +10,18 @@ $palette-b-colors: ("darkest": #1a1423, "darker": #372549, "dark": #774c60, "acc
 $palette-c-colors: ("darkest": #1f2041, "darker": #19647e, "dark": #119da4, "accent": #4b3f72, "alt-accent": #ffc857);
 
 // BREAKPOINTS (breakpoints mixin)
-$values-breakpoints: (
-  'sm-limit': 767px,
-  'md-limit': 992px,
-  'lg-limit': 1200px
-) !default;
-$rwd-breakpoints: (
-  'small':  ( min-width: map.get($values-breakpoints, 'sm-limit') ),
-  'medium': ( min-width: map.get($values-breakpoints, 'md-limit') ),
-  'large':  ( min-width: map.get($values-breakpoints, 'lg-limit') )
+$breakpoints: (
+  'small':  767px,
+  'medium': 992px,
+  'large': 1200px
 ) !default;
 
 // TYPOGRAPHY
 $fluid-font: (
-  'small': (minSize: 12px, maxSize: 16px, minWidthFluidRange: map.get($values-breakpoints, 'sm-limit'), maxWidthFluidRange: map.get($values-breakpoints, 'lg-limit'), lineHeight: 1.4),
-  'base': (minSize: 16px, maxSize: 22px, minWidthFluidRange: map.get($values-breakpoints, 'sm-limit'), maxWidthFluidRange: map.get($values-breakpoints, 'lg-limit'), lineHeight: 1.4),
-  'large': (minSize: 24px, maxSize: 32px, minWidthFluidRange: map.get($values-breakpoints, 'sm-limit'), maxWidthFluidRange: map.get($values-breakpoints, 'lg-limit'), lineHeight: 1.4),
-  'xlarge': (minSize: 36px, maxSize: 48px, minWidthFluidRange: map.get($values-breakpoints, 'sm-limit'), maxWidthFluidRange: map.get($values-breakpoints, 'lg-limit'), lineHeight: 1.4)
+  'small': (minSize: 12px, maxSize: 16px, minWidthFluidRange: map.get($breakpoints, 'small'), maxWidthFluidRange: map.get($breakpoints, 'large'), lineHeight: 1.4),
+  'base': (minSize: 16px, maxSize: 22px, minWidthFluidRange: map.get($breakpoints, 'small'), maxWidthFluidRange: map.get($breakpoints, 'large'), lineHeight: 1.4),
+  'large': (minSize: 24px, maxSize: 32px, minWidthFluidRange: map.get($breakpoints, 'small'), maxWidthFluidRange: map.get($breakpoints, 'large'), lineHeight: 1.4),
+  'xlarge': (minSize: 36px, maxSize: 48px, minWidthFluidRange: map.get($breakpoints, 'small'), maxWidthFluidRange: map.get($breakpoints, 'large'), lineHeight: 1.4)
 ) !default;
 
 $tag-multiplier: (

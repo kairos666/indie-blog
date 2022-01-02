@@ -1,24 +1,26 @@
 @use "sass:map";
 @import "variables";
-@import "breakpoints-mixin";
+@import "include-media-mixins";
 @import "util-functions";
 @import "typography-utilities";
 
 .header-container {
     display:block;
-    padding-left: vertical-rythm('small', 'txt', 1);
-    padding-right: vertical-rythm('small', 'txt', 1);
     border-bottom:2px solid var(--accent);
     
-    @include rwd('small') {
+    @include media('<small') {
+        padding-left: vertical-rythm('small', 'txt', 1);
+        padding-right: vertical-rythm('small', 'txt', 1);
+    }
+    @include media('>=small', '<medium') {
         padding-left: vertical-rythm('small', 'txt', 1.5);
         padding-right: vertical-rythm('small', 'txt', 1.5);
     }
-    @include rwd('medium') {
+    @include media('>=medium', '<large') {
         padding-left: vertical-rythm('base', 'txt', 2);
         padding-right: vertical-rythm('base', 'txt', 2);
     }
-    @include rwd('large') {
+    @include media('>=large') {
         padding-left: vertical-rythm('large', 'txt', 2);
         padding-right: vertical-rythm('large', 'txt', 2);
     }
@@ -29,7 +31,7 @@
     margin-right:auto;
     margin-top: vertical-rythm('small', 'txt', 0.5);
     margin-bottom: vertical-rythm('small', 'txt', 0.5);
-    max-width: map.get($values-breakpoints, 'md-limit');
+    max-width: map.get($breakpoints, 'medium');
 }
 
 .header-home-link {
