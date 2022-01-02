@@ -37,24 +37,28 @@
 
     & > main {
         grid-area: content;
-        max-width: map.get($breakpoints, 'medium');
         justify-self: center;
+        max-width: map.get($breakpoints, 'medium');
         
         @include media('<small') {
             margin-left: vertical-rythm('small', 'txt', 1);
             margin-right: vertical-rythm('small', 'txt', 1);
+            width: unquote("calc( 100% - #{ vertical-rythm('small', 'txt', 2) } )");
         }
         @include media('>=small', '<medium') {
             margin-left: vertical-rythm('small', 'txt', 1.5);
             margin-right: vertical-rythm('small', 'txt', 1.5);
+            width: unquote("calc( 100% - #{ vertical-rythm('small', 'txt', 3) } )");
         }
         @include media('>=medium', '<large') {
             margin-left: vertical-rythm('base', 'txt', 2);
             margin-right: vertical-rythm('base', 'txt', 2);
+            width: unquote("calc( 100% - #{ vertical-rythm('base', 'txt', 4) } )");
         }
         @include media('>=large') {
             margin-left: vertical-rythm('large', 'txt', 2);
             margin-right: vertical-rythm('large', 'txt', 2);
+            width: unquote("calc( 100% - #{ vertical-rythm('large', 'txt', 4) } )");
         }
     }
 
