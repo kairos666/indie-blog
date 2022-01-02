@@ -6,17 +6,20 @@ import Head from 'next/head';
 import Link from 'next/link';
 import GenericPageLayout from '../components/layouts/GenericPageLayouts';
 import Time from '../components/content/Time';
+import styles from '../styles/cmpnts-partials/home.module.scss';
+
+type ArticleSummaryProps = {
+    title: string,
+    description: string,
+    category: string,
+    tags: string[],
+    published: string,
+    url: string
+};
 
 type HomeProps = {
     host: string,
-    chronoArticles: {
-        title: string,
-        description: string,
-        category: string,
-        tags: string[],
-        published: string,
-        url: string
-    }[]
+    chronoArticles: ArticleSummaryProps[]
 }
 
 const Home: NextPage<HomeProps> = ({ host, chronoArticles }) => {
@@ -39,31 +42,28 @@ const Home: NextPage<HomeProps> = ({ host, chronoArticles }) => {
                 <meta property="twitter:description" content={ description } />
             </Head>
             <GenericPageLayout>
-                <section>
-                    <h2>Articles</h2>
-                    <ul>
-                        { chronoArticles.map(articleLink => {
-                            return (
-                                <li key={ `${ articleLink.url }` }>
-                                    <Link href={ articleLink.url }>
-                                        <a>
-                                            <span>{ articleLink.title }</span>
-                                            <span>{ articleLink.description }</span>
-                                            <Time dateTime={ articleLink.published } />
-                                            <span>{ articleLink.category }</span>
-                                            <span>{ articleLink.tags }</span>
-                                        </a>
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </section>
+                <ul className={ styles.articlesLinkList }>
+                    { chronoArticles.map(articleLink => <li key={ `${ articleLink.url }` }><HomeArticleLink {...articleLink} /></li>) }
+                </ul>
             </GenericPageLayout>
         </>
     )
 }
 
+export const HomeArticleLink = ({ title, description, category, tags, published, url }:ArticleSummaryProps) => {
+    return (
+        <Link href={ url }>
+            <a className={ styles.articleLink }>
+                <mark><Time dateTime={ published } /></mark>
+                <h2>{ title }</h2>
+                <p>{ description }</p>
+                <p><strong>{ category }</strong> : <em>{ tags.join(', ') }</em></p>
+            </a>
+        </Link>
+    );
+}
+
+// SSG
 export async function getStaticProps(_context:GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
     // chronologically sorted list of articles
     const mdxContentFilePathList = await listFilesInFolder('content');
@@ -72,16 +72,16 @@ export async function getStaticProps(_context:GetStaticPropsContext): Promise<Ge
             .then(fileString => parseFrontmatter(fileString));
     }));
 
-    // sort articles chronoligically and format data for JSX rendering
+    // sort articles chronoligically and format data for JSX rendering (from latest to oldest)
     const sortedAndFormattedArticleList = processedArticleList
         .sort((a, b) => {
             const aTimestamp:number = (a.data.published as Date).getTime();
             const bTimestamp:number = (b.data.published as Date).getTime();
 
             return (aTimestamp < bTimestamp)
-                ? -1
-                : (aTimestamp > bTimestamp)
                 ? 1
+                : (aTimestamp > bTimestamp)
+                ? -1
                 : 0; 
         })
         .map(({ data }) => {

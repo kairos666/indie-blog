@@ -1,0 +1,37 @@
+@use "sass:map";
+@import "variables";
+@import "breakpoints-mixin";
+@import "util-functions";
+@import "typography-utilities";
+
+// links list (chronological)
+.articlesLinkList {
+    list-style: none;
+    padding-left:0;
+
+    > li + li {
+        margin-top: vertical-rythm('base', 'txt', 1.5);
+    }
+}
+
+// links
+.articleLink {
+    text-decoration:none;
+    color: var(--darkest);
+
+    h2, h3, h4, h5, h6 {
+        margin-top: vertical-rythm('base', 'txt', 0.25);;
+        margin-bottom: 0;
+    }
+
+    &:hover, &:focus, &:visited {
+        color: var(--darkest);
+        h2, h3, h4, h5, h6 {
+            color: var(--accent);
+        }
+    }
+
+    &:hover, &:focus { 
+        color: var(--accent);
+    }
+}
